@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System.Net.Http.Headers.HttpHeaderValueCollection&lt;T&gt;">
+    <Position X="4.25" Y="1" Width="2.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpRequestHeaders">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Accept" />
+      <Property Name="AcceptLanguage" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpResponseHeaders">
+    <Position X="8.5" Y="0.5" Width="2.75" />
+    <AssociationLine Name="WwwAuthenticate" Type="System.Net.Http.Headers.HttpHeaderValueCollection&lt;T&gt;" FixedToPoint="true">
+      <Path>
+        <Point X="8.5" Y="2.438" />
+        <Point X="6.75" Y="2.438" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="WwwAuthenticate" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

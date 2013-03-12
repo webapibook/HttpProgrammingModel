@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System.Net.Http.HttpRequestMessage">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="HttpRequestMessage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.HttpResponseMessage">
+    <Position X="3.25" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="EnsureSuccessStatusCode" Hidden="true" />
+      <Method Name="HttpResponseMessage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

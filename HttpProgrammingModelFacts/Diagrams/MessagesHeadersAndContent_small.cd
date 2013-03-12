@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System.Net.Http.HttpRequestMessage">
+    <Position X="0.5" Y="1.75" Width="2.5" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="HttpRequestMessage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Content" Type="System.Net.Http.HttpContent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.672" Y="3.046" />
+        <Point X="1.672" Y="3.75" />
+        <Point X="2.75" Y="3.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.102" Y="-0.29" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Method" Type="System.Net.Http.HttpMethod" FixedToPoint="true">
+      <Path>
+        <Point X="1.375" Y="1.75" />
+        <Point X="1.375" Y="1.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RequestUri" Type="System.Uri" FixedToPoint="true">
+      <Path>
+        <Point X="2.75" Y="1.75" />
+        <Point X="2.75" Y="1.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Headers" Type="System.Net.Http.Headers.HttpRequestHeaders" FixedFromPoint="true">
+      <Path>
+        <Point X="1.125" Y="3.046" />
+        <Point X="1.125" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Content" />
+      <Property Name="Method" />
+      <Property Name="RequestUri" />
+      <Property Name="Headers" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.HttpResponseMessage">
+    <Position X="4.5" Y="1.75" Width="2.5" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="EnsureSuccessStatusCode" Hidden="true" />
+      <Method Name="HttpResponseMessage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Content" Type="System.Net.Http.HttpContent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.828" Y="3.238" />
+        <Point X="5.828" Y="3.781" />
+        <Point X="4.75" Y="3.781" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.118" Y="-0.273" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="StatusCode" Type="System.Net.HttpStatusCode" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="1.75" />
+        <Point X="6.25" Y="1.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Headers" Type="System.Net.Http.Headers.HttpResponseHeaders" FixedFromPoint="true">
+      <Path>
+        <Point X="6.375" Y="3.238" />
+        <Point X="6.375" Y="4.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="RequestMessage" Type="System.Net.Http.HttpRequestMessage" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="1.923" />
+        <Point X="3" Y="1.923" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.135" Y="0.11" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Content" />
+      <Property Name="StatusCode" />
+      <Property Name="Headers" />
+      <Property Name="RequestMessage" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.HttpContent" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="2" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Headers" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpResponseHeaders" Collapsed="true">
+    <Position X="5" Y="4.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpRequestHeaders" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpContentHeaders" Collapsed="true">
+    <Position X="2.75" Y="4.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Net.Http.HttpMethod" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Uri" Collapsed="true">
+    <Position X="2" Y="0.5" Width="1.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.425" />
+  </Class>
+  <Enum Name="System.Net.HttpStatusCode" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

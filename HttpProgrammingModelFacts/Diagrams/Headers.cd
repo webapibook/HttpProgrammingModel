@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System.Net.Http.HttpRequestMessage">
+    <Position X="2.5" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="HttpRequestMessage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Content" Type="System.Net.Http.HttpContent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="4.5" Y="0.688" />
+        <Point X="5.938" Y="0.688" />
+        <Point X="5.938" Y="1.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.093" Y="0.31" Height="0.182" Width="0.911" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Headers" Type="System.Net.Http.Headers.HttpRequestHeaders">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.094" Y="0.06" Height="0.182" Width="0.82" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Content" />
+      <Property Name="Headers" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.HttpContent">
+    <Position X="4.75" Y="1.25" Width="2" />
+    <Members>
+      <Method Name="CopyToAsync" Hidden="true" />
+      <Method Name="CreateContentReadStreamAsync" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="HttpContent" Hidden="true" />
+      <Method Name="LoadIntoBufferAsync" Hidden="true" />
+      <Method Name="ReadAsByteArrayAsync" Hidden="true" />
+      <Method Name="ReadAsStreamAsync" Hidden="true" />
+      <Method Name="ReadAsStringAsync" Hidden="true" />
+      <Method Name="SerializeToStreamAsync" Hidden="true" />
+      <Method Name="TryComputeLength" Hidden="true" />
+    </Members>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Headers" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.HttpResponseMessage">
+    <Position X="7" Y="0.5" Width="2" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="EnsureSuccessStatusCode" Hidden="true" />
+      <Method Name="HttpResponseMessage" Hidden="true" />
+      <Method Name="ToString" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="Content" Type="System.Net.Http.HttpContent" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="0.688" />
+        <Point X="6.125" Y="0.688" />
+        <Point X="6.125" Y="1.25" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.732" Y="0.343" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="RequestMessage" Type="System.Net.Http.HttpRequestMessage" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.312" Y="0.5" />
+        <Point X="8.312" Y="0.125" />
+        <Point X="3.938" Y="0.125" />
+        <Point X="3.938" Y="0.5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.357" Y="0.135" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="Content" />
+      <Property Name="Headers" />
+      <Property Name="RequestMessage" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpResponseHeaders">
+    <Position X="7" Y="2.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpContentHeaders">
+    <Position X="4.75" Y="2.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Net.Http.Headers.HttpRequestHeaders">
+    <Position X="2.5" Y="2.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
