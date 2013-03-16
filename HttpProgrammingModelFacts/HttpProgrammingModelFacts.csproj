@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HeaderFacts.cs" />
+    <Compile Include="HttpContentFacts.cs" />
     <Compile Include="HttpRequestMessageFacts.cs" />
     <Compile Include="HttpResponseMessageFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +54,7 @@
   <ItemGroup>
     <None Include="Diagrams\Headers.cd" />
     <None Include="Diagrams\Headers2.cd" />
+    <None Include="Diagrams\HttpContentHierarchy.cd" />
     <None Include="Diagrams\HttpHeaderValueCollection.cd" />
     <None Include="Diagrams\HttpMethod.cd" />
     <None Include="Diagrams\Messages.cd" />

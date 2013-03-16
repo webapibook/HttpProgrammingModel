@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -12,6 +13,56 @@ namespace HttpProgrammingModelFacts
     public class HeaderFacts
     {
         [Fact]
+        public void Header_classes_expose_headers_in_a_strongly_typed_way()
+        {
+            var request = new HttpRequestMessage();
+            request.Headers.Add(
+                "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+
+            HttpHeaderValueCollection<MediaTypeWithQualityHeaderValue> accept = request.Headers.Accept;
+            Assert.Equal(4,accept.Count);
+
+            MediaTypeWithQualityHeaderValue third = accept.Skip(2).First();
+            Assert.Equal("application/xml", third.MediaType);
+            Assert.Equal(0.9, third.Quality);
+            Assert.Null(third.CharSet);
+            Assert.Equal(1,third.Parameters.Count);
+            Assert.Equal("q",third.Parameters.First().Name);
+            Assert.Equal("0.9", third.Parameters.First().Value);
+        }
+
+        [Fact]
+        public void Header_properties_simplify_header_construction()
+        {
+            var response = new HttpResponseMessage();
+            response.Headers.Date = new DateTimeOffset(2013,1,1,0,0,0, TimeSpan.FromHours(0));
+            response.Headers.CacheControl = new CacheControlHeaderValue
+            {
+                MaxAge = TimeSpan.FromMinutes(1),
+                Private = true
+            };
+            
+            var dateValue = response.Headers.First(h => h.Key == "Date").Value.First();
+            Assert.Equal("Tue, 01 Jan 2013 00:00:00 GMT", dateValue);
+
+            var cacheControlValue = response.Headers.First(h => h.Key == "Cache-Control").Value.First();
+            Assert.Equal("max-age=60, private", cacheControlValue);
+        }
+
+        [Fact]
+        public async void Message_and_content_headers_are_not_in_the_same_collection()
+        {
+            using(var client = new HttpClient())
+            {
+                var response = await client.GetAsync("http://tools.ietf.org/html/rfc2616");
+                var request = response.RequestMessage;
+                Assert.Equal("tools.ietf.org",request.Headers.Host);
+                Assert.NotNull(response.Headers.Server);
+                Assert.Equal("text/html",response.Content.Headers.ContentType.MediaType);
+            }
+        }
+
+        [Fact]
         public void HttpHeader_has_an_Add_instance_method()
         {
             var request = new HttpRequestMessage();
@@ -21,10 +72,11 @@ namespace HttpProgrammingModelFacts
         }
 
         [Fact]
-        public void HttpHeader_Add_method_validates_the_value_domain()
+        public void HttpHeader_Add_method_validates_the_value_domain_for_standard_headers()
         {
             var request = new HttpRequestMessage();
             Assert.Throws<FormatException>(() => request.Headers.Add("Date", "invalid-date"));
+            request.Headers.Add("Strict-Transport-Security", "invalid ;; value");
         }
 
         [Fact]
