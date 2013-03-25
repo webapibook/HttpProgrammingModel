@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D02441DB-252B-4A0E-A287-BF3A8269FEEE}</ProjectGuid>
+    <ProjectGuid>{8FEEE6E3-7551-492A-A91F-E58075630498}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HttpProgrammingModelFacts</RootNamespace>
-    <AssemblyName>HttpProgrammingModelFacts</AssemblyName>
+    <RootNamespace>HttpProgrammingModelExtensions</RootNamespace>
+    <AssemblyName>HttpProgrammingModelExtensions</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,41 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HeaderFacts.cs" />
-    <Compile Include="HttpContentFacts.cs" />
-    <Compile Include="HttpRequestMessageFacts.cs" />
-    <Compile Include="HttpResponseMessageFacts.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Diagrams\Headers.cd" />
-    <None Include="Diagrams\Headers2.cd" />
-    <None Include="Diagrams\HttpContentHierarchy.cd" />
-    <None Include="Diagrams\HttpHeaderValueCollection.cd" />
-    <None Include="Diagrams\HttpMethod.cd" />
-    <None Include="Diagrams\Messages.cd" />
-    <None Include="Diagrams\MessagesAndContent.cd" />
-    <None Include="Diagrams\MessagesHeadersAndContent_large.cd" />
-    <None Include="Diagrams\MessagesHeadersAndContent_small.cd" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
