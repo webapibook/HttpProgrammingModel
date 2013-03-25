@@ -1,4 +1,4 @@
 HttpProgrammingModel
 ====================
 
-Examples for the new .NET HTTP programming model (System.Net.Http)
+Examples and facts for the new .NET HTTP programming model (System.Net.Http)
