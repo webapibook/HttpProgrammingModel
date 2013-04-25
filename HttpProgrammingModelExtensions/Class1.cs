@@ -21,13 +21,21 @@ namespace HttpProgrammingModelExtensions
         {
             return (stream, content, ctx) =>
                 {
-                    using (var writer = XmlWriter.Create(stream))
+                    using (var writer = XmlWriter.Create(stream, new XmlWriterSettings(){CloseOutput = true}))
                     {
                         xe.WriteTo(writer);
                     }
                 };
         }
     }
+
+    public class EmbeddedContent : StreamContent {
+        public EmbeddedContent(Type locatorType, string filename)
+            :base(typeof(EmbeddedContent).Assembly.GetManifestResourceStream(locatorType, filename))
+        {
+        }
+    }
+         
 
     public static class XElementContentExtensions
     {

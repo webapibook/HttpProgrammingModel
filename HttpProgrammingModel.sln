@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MJpegServer", "MJpegServer\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpProgrammingModelExtensions", "HttpProgrammingModelExtensions\HttpProgrammingModelExtensions.csproj", "{8FEEE6E3-7551-492A-A91F-E58075630498}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHost", "WebHost\WebHost.csproj", "{AC1BF93E-8609-4AEF-B055-C556F46D2C75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{8FEEE6E3-7551-492A-A91F-E58075630498}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FEEE6E3-7551-492A-A91F-E58075630498}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FEEE6E3-7551-492A-A91F-E58075630498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC1BF93E-8609-4AEF-B055-C556F46D2C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC1BF93E-8609-4AEF-B055-C556F46D2C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC1BF93E-8609-4AEF-B055-C556F46D2C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC1BF93E-8609-4AEF-B055-C556F46D2C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
