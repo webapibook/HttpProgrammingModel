@@ -11,6 +11,7 @@ namespace HttpProgrammingModelFacts
 {
     public class HttpResponseMessageFacts
     {
+        // {{{easy_to_instantiate
         [Fact]
         public void HttpResponseMessage_is_easy_to_instantiate()
         {
@@ -18,6 +19,7 @@ namespace HttpProgrammingModelFacts
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.Equal(new Version(1,1), response.Version);
         }
+        // }}}
 
         [Fact]
         public void Has_setter_and_getters_for_most_properties()
@@ -29,6 +31,7 @@ namespace HttpProgrammingModelFacts
             response.Content = new StringContent("I'm a representation");
         }
 
+        // {{{New_status_codes_can_also_be_used
         [Fact]
         public void New_status_codes_can_also_be_used()
         {
@@ -38,5 +41,6 @@ namespace HttpProgrammingModelFacts
                                };
             Assert.Equal(418, (int)response.StatusCode);
         }
+        // }}}
     }
 }

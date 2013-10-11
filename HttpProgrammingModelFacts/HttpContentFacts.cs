@@ -19,6 +19,7 @@ namespace HttpProgrammingModelFacts
 {
     public class HttpContentFacts
     {
+        // {{{HttpContent_can_be_consumed_in_push_style
         [Fact] 
         public async Task HttpContent_can_be_consumed_in_push_style()
         {
@@ -31,7 +32,9 @@ namespace HttpProgrammingModelFacts
                 Assert.True(ms.Length > 0);
             }
         }
+        // }}}
 
+        // {{{HttpContent_can_be_consumed_in_pull_style
         [Fact]
         public async Task HttpContent_can_be_consumed_in_pull_style()
         {
@@ -46,7 +49,9 @@ namespace HttpProgrammingModelFacts
                 Assert.True(s.Contains("Hypertext Transfer Protocol -- HTTP/1.1"));
             }
         }
+        // }}}
 
+        // {{{HttpContent_can_be_consumed_as_a_string
         [Fact]
         public async Task HttpContent_can_be_consumed_as_a_string()
         {
@@ -58,7 +63,9 @@ namespace HttpProgrammingModelFacts
                 Assert.True(s.Contains("Hypertext Transfer Protocol -- HTTP/1.1"));
             }
         }
+        // }}}
 
+        // {{{GitHubUser
         class GitHubUser
         {
             public string login { get; set; }
@@ -74,12 +81,18 @@ namespace HttpProgrammingModelFacts
             {
                 var response = await client.GetAsync("https://api.github.com/users/webapibook");
                 response.EnsureSuccessStatusCode();
-                var user = await response.Content.ReadAsAsync<GitHubUser>(new MediaTypeFormatter[]{new JsonMediaTypeFormatter()});
+                var user = await response.Content
+                    .ReadAsAsync<GitHubUser>(new MediaTypeFormatter[]
+                    {
+                        new JsonMediaTypeFormatter()
+                    });
                 Assert.Equal("webapibook", user.login);
                 Assert.Equal("Organization", user.type);
             }
         }
+        // }}}
 
+        // {{{StringContent_can_be_used_to_represent_plain_text
         [Fact]
         public void StringContent_can_be_used_to_represent_plain_text()
         {
@@ -89,7 +102,9 @@ namespace HttpProgrammingModelFacts
                 };
             Assert.Equal("text/plain", response.Content.Headers.ContentType.MediaType);
         }
+        // }}}
 
+        // {{{FormUrlEncodedContent_can_be_used_to_represent_name_value_pairs
         [Fact]
         public async Task FormUrlEncodedContent_can_be_used_to_represent_name_value_pairs()
         {
@@ -107,7 +122,9 @@ namespace HttpProgrammingModelFacts
             var stringContent = await request.Content.ReadAsStringAsync();
             Assert.Equal("name1=value1&name2=value2", stringContent);
         }
+        // }}}
 
+        // {{{ByteArrayContent_can_be_used_to_represent_byte_sequences
         [Fact]
         public async Task ByteArrayContent_can_be_used_to_represent_byte_sequences()
         {
@@ -117,7 +134,9 @@ namespace HttpProgrammingModelFacts
             var readText = await content.ReadAsStringAsync();
             Assert.Equal("Hello", readText);
         }
+        // }}}
 
+        // {{{StreamContent_can_be_used_when_content_is_in_a_stream
         [Fact]
         public async Task StreamContent_can_be_used_when_content_is_in_a_stream()
         {
@@ -133,9 +152,12 @@ namespace HttpProgrammingModelFacts
             }
             Assert.Throws<ObjectDisposedException>(() => stream.Read(new byte[1], 0, 1));
         }
+        // }}}
 
+        // {{{PushStreamContent_can_be_used_when_content_is_provided_by_a_stream_writer
         [Fact]
-        public async Task PushStreamContent_can_be_used_when_content_is_provided_by_a_stream_writer()
+        public async Task 
+            PushStreamContent_can_be_used_when_content_is_provided_by_a_stream_writer()
         {
             var xml = new XElement("root",
                                          new XElement("child1", "text"),
@@ -155,9 +177,11 @@ namespace HttpProgrammingModelFacts
             var text = await content.ReadAsStringAsync();
             Assert.True(text.Contains("<child1"));
         }
+        // }}}
 
+        // {{{PushStreamContent_can_be_used_asynchronously
         [Fact]
-        public async Task PushStreamContent_can_be_used_asynchronously()
+        public async Task PushStreamContent_can_be_used_asynchronously()       
         {
             const string text = "will wait for 2 seconds without blocking";
             Timer timer = null;
@@ -183,9 +207,12 @@ namespace HttpProgrammingModelFacts
             Assert.True(sw.ElapsedMilliseconds > 1500);
             timer.Dispose();
         }
+        // }}}
 
+        // {{{ObjectContent_uses_media_type_formatter_to_produce_the_content
         [Fact]
-        public async Task ObjectContent_uses_media_type_formatter_to_produce_the_content()
+        public async Task 
+            ObjectContent_uses_media_type_formatter_to_produce_the_content()
         {
             var representation = new
                                      {
@@ -206,5 +233,6 @@ namespace HttpProgrammingModelFacts
             Assert.Equal(42, obj["field2"]);
             Assert.Equal(true, obj["field3"]);
         }
+        // }}}
     }
 }

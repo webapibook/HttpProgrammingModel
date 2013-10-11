@@ -70,41 +70,17 @@ namespace HttpProgrammingModelFacts
         [Fact]
         public async Task With_SelfHosting_TransferMode_Streamed_contents_are_always_streamed()
         {
-            var server = await CreateAndOpenServer(8081,true);
+            var server = await CreateAndOpenServer(8080,true);
             using (var client = new HttpClient())
             {
-                var resp = await client.GetAsync("http://localhost:8081/stream?push=false");
+                var resp = await client.GetAsync("http://localhost:8080/stream?push=false");
                 Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
                 Assert.Equal(1, resp.Headers.TransferEncoding.Count);
-                resp = await client.GetAsync("http://localhost:8081/stream?push=true");
+                resp = await client.GetAsync("http://localhost:8080/stream?push=true");
                 Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
                 Assert.Equal(1, resp.Headers.TransferEncoding.Count);
             }
             await server.CloseAsync();
-        }
-
-        
-        [Fact]
-        public async Task With_WebHosting_Fact()
-        {
-            using (var client = new HttpClient())
-            {
-                var resp = await client.GetAsync("http://www.example.net/api/stream?streamType=MemoryStream");
-                Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
-                Assert.Equal(0, resp.Headers.TransferEncoding.Count);
-
-                resp = await client.GetAsync("http://www.example.net/api/stream?streamType=NonSeekableStream");
-                Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
-                Assert.Equal(1, resp.Headers.TransferEncoding.Count);
-
-                resp = await client.GetAsync("http://www.example.net/api/stream?streamType=PushStream");
-                Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
-                Assert.Equal(1, resp.Headers.TransferEncoding.Count);
-
-                resp = await client.GetAsync("http://www.example.net/api/stream?streamType=CustomStreamContent");
-                Assert.Equal(HttpStatusCode.OK, resp.StatusCode);
-                Assert.Equal(0, resp.Headers.TransferEncoding.Count);
-            }
         }
     }
 }
