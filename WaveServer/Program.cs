@@ -61,7 +61,7 @@ namespace WaveServer
                                             try
                                             {
                                                 stream.Write(args.Buffer, 0, args.BytesRecorded);
-                                            }catch(Exception e)
+                                            }catch(Exception)
                                             {
                                                 Trace.TraceInformation("Stop recording");
                                                 wavein.StopRecording();
