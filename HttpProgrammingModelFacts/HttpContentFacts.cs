@@ -25,7 +25,10 @@ namespace HttpProgrammingModelFacts
         {
             using (var client = new HttpClient())
             {
-                var response = await client.GetAsync("http://www.ietf.org/rfc/rfc2616.txt");
+                var response = 
+                    await client.GetAsync("http://www.ietf.org/rfc/rfc2616.txt",
+                    HttpCompletionOption.ResponseHeadersRead
+                    );
                 response.EnsureSuccessStatusCode();
                 var ms = new MemoryStream();
                 await response.Content.CopyToAsync(ms);
@@ -184,18 +187,13 @@ namespace HttpProgrammingModelFacts
         public async Task PushStreamContent_can_be_used_asynchronously()       
         {
             const string text = "will wait for 2 seconds without blocking";
-            Timer timer = null;
-            var content = new PushStreamContent((stream, cont, ctx) =>
-                {
-                    var callback = new TimerCallback(_ =>
-                        {
-                            var bytes = Encoding.UTF8.GetBytes(text);
-                            stream.Write(bytes, 0, bytes.Length);
-                            stream.Close();
-                        });
-                    timer = new Timer(callback, null,
-                        TimeSpan.FromSeconds(2), TimeSpan.FromMilliseconds(-1));
-                });
+            var content = new PushStreamContent(async (stream, cont, ctx) =>
+            {
+                await Task.Delay(2000);
+                var bytes = Encoding.UTF8.GetBytes(text);
+                stream.Write(bytes, 0, bytes.Length);
+                stream.Close();
+            });
             content.Headers.ContentType = new MediaTypeWithQualityHeaderValue("text/plain");
 
             // Assert
@@ -205,7 +203,6 @@ namespace HttpProgrammingModelFacts
             sw.Stop();
             Assert.Equal(text, receivedText);
             Assert.True(sw.ElapsedMilliseconds > 1500);
-            timer.Dispose();
         }
         // }}}
 
